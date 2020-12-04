@@ -1,0 +1,24 @@
+<h1>Cartelera</h1>
+
+<!-- He importado el componente slideshow (que está en 'components') aquí en 'pages', 
+    esto se hizo exportando el componente slideshow en su components.module.ts 
+    y éste a su vez fué importado en el pages.module.ts. Ambos modulos obviamente importados
+    en el fichero app.module.ts-->
+
+
+
+<div class="row animate__animated animate__backInLeft" *ngIf="movies.length > 0">
+    <div class="col">
+        <!-- [movies] ==> es una propiedad de slideshow y que la recibirá
+                colocando @input() movies. -->
+        <!-- "moviesSlideshow" ==> es la propiedad definida en home.component.ts que recibe las pelis 
+                    de un servicio y que se las está enviando al componente hijo (slideshow) -->
+        <!-- Podemos afirmar que slideshow es un COMPONENTE HIJO de home.component (actual). -->
+        <app-slideshow [movies]="moviesSlideshow"></app-slideshow>
+    </div>
+</div>
+
+<h1 class="mt-5">Películas</h1>
+
+
+<app-peliculas-poster-grid *ngIf="movies.length > 0" [movies]="movies"> </app-peliculas-poster-grid>

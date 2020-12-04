@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+
+    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active">Peliculas</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+
+        <div class="d-flex my-2 my-lg-0 mr-3">
+            <select (change)="genreChange($event)" class="custom-select" id="selectGeneros" #txtGenres>
+                <option [value]="null" selected> Géneros </option>
+                <option *ngFor="let genero of generos" [value]="genero.id">{{genero.name}}</option>                
+              </select>
+        </div>
+
+        <div class="d-flex my-2 my-lg-0">
+            <!-- OJO que no es .values si no, .value y ni siquiera aparece la ayuda! -->
+            <input #txtBuscar (keyup.enter)="buscarPeli(txtBuscar.value)" class="form-control mr-sm-2" type="search" placeholder="Buscar película..." id="id_caja_busqueda">
+            <button (click)="buscarPeli(txtBuscar.value)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </div>
+    </div>
+
+</nav>
