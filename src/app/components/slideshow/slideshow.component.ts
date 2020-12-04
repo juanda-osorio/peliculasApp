@@ -24,6 +24,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
     
     this.mySwiper = new Swiper('.swiper-container', {
       loop: true,
+      /* el autoplay no me funcionó */
       autoplay: {
         delay: 1000
       }
